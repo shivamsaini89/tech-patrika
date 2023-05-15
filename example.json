@@ -1,0 +1,45 @@
+{
+    "status": "ok",
+    "totalResults": 3,
+    "articles": [
+    {
+    "source": {
+    "id": "news24",
+    "name": "News24"
+    },
+    "author": "Lameez Omarjee",
+    "title": "Govt open to power ships – but not longer than five years - Ramokgopa",
+    "description": "Government is open to power ships and any energy generation technology that can help address the energy crisis in the short term.",
+    "url": "https://www.news24.com/fin24/economy/govt-open-to-power-ships-but-not-longer-than-five-years-ramokgopa-20230512",
+    "urlToImage": "https://cdn.24.co.za/files/Cms/General/d/8709/995b7e3b93fc45eebe752456d73ccb2a.jpg",
+    "publishedAt": "2023-05-12T18:06:44+00:00",
+    "content": "<ul><li>Government has reaffirmed its willingness to accept power ships among the mix of emergency energy solutions.</li><li>However, Electricity Minister Kgosientsho Ramokgopa says emergency power c… [+5794 chars]"
+    },
+    {
+    "source": {
+    "id": "wired",
+    "name": "Wired"
+    },
+    "author": "Wired",
+    "title": "You’re Probably Underestimating AI Chatbots",
+    "description": "Just as the first iPhone reviews mostly missed the device’s huge potential, it’s folly to draw conclusions from today’s unrefined technology.",
+    "url": "https://www.wired.com/story/plaintext-youre-probably-underestimating-ai-chatbots/",
+    "urlToImage": "https://media.wired.com/photos/645d37c10227ed23db8041a9/191:100/w_1280,c_limit/AI_biz_GettyImages-1372009287.jpg",
+    "publishedAt": "2023-05-12T13:00:00Z",
+    "content": "In the spring of 2007, I was one of four journalists anointed by Steve Jobs to review the iPhone. This was probably the most anticipated product in the history of tech. What would it be like? Was it … [+3748 chars]"
+    },
+    {
+    "source": {
+    "id": "newsweek",
+    "name": "Newsweek"
+    },
+    "author": "Mark Davis",
+    "title": "Newsweek",
+    "description": "Newsweek provides in-depth analysis, news and opinion about international issues, technology, business, culture and politics.",
+    "url": "https://www.newsweek.com/",
+    "urlToImage": "https://d.newsweek.com/en/full/2202468/special-presidential-envoy-climate-john-kerry.jpg",
+    "publishedAt": "2023-03-01T12:07:28.8517009Z",
+    "content": null
+    }
+    ]
+    }
