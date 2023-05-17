@@ -17,7 +17,7 @@ export class News extends Component {
         pageSize: PropTypes.number
     }
 
-    cap1stLetter = (string)=>{
+    cap1stLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
@@ -31,17 +31,22 @@ export class News extends Component {
         }
         document.title = `${this.cap1stLetter(this.props.category)} - Tech Patrika`
     }
-
     updateNews = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=38b2795453e041288a2416f133c58cb6&page=1&pageSize=${this.props.pageSize}`;
+        try {
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=38b2795453e041288a2416f133c58cb6&page=${this.props.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData);
         this.setState({
             articles: parsedData.articles,
+            totalResults: parsedData.totalResults,
             loading: false
         })
+        
+    } catch (error) {
+        console.log(error)
+    }
     }
 
     async componentDidMount() {
@@ -49,17 +54,14 @@ export class News extends Component {
     }
 
     handlePrevClick = async () => {
-        this.setState({ pageSize: this.pageSize - 1 })
+        this.setState({page: (this.state.page-1)});
         this.updateNews();
 
     }
 
     handleNextClick = async () => {
-        if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
-
-            this.setState({pageSize: this.pageSize - 1})
-            this.updateNews();
-        }
+        this.setState({page: (this.state.page+1)});
+        this.updateNews();
     }
 
 
