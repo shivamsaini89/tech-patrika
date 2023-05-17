@@ -17,14 +17,19 @@ export class News extends Component {
         pageSize: PropTypes.number
     }
 
-    constructor() {
-        super();
+    cap1stLetter = (string)=>{
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    constructor(props) {
+        super(props);
         this.state = {
             articles: [],
             loading: false,
             page: 1,
-            totalResults: 20
+            totalResults: 20,
         }
+        document.title = `${this.cap1stLetter(this.props.category)} - Tech Patrika`
     }
 
     updateNews = async () => {
@@ -51,7 +56,7 @@ export class News extends Component {
 
     handleNextClick = async () => {
         if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
-            
+
             this.setState({pageSize: this.pageSize - 1})
             this.updateNews();
         }
@@ -61,7 +66,7 @@ export class News extends Component {
     render() {
         return (
             <div className="container my-3">
-                <h1 className="text-center" style={{ margin: '40px' }} >Tech Patrika - Top Headlines</h1>
+                <h1 className="text-center" style={{ margin: '40px' }} >Tech Patrika - Top Headlines from {this.cap1stLetter(this.props.category)} Category</h1>
                 {this.state.loading && <Spinner />}
                 <div className="row">
                     {!this.state.loading && this.state.articles && this.state.articles.map((element) => {
