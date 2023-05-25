@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import Card from './Card'
+import React, { Component } from 'react';
+import Card from './Card';
 import Spinner from './Spinner';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import InfiniteScroll from "react-infinite-scroll-component";
+// import LoadingBar from 'react-top-loading-bar'
 
 export class News extends Component {
 
@@ -33,21 +34,22 @@ export class News extends Component {
         document.title = `${this.cap1stLetter(this.props.category)} - Tech Patrika`
     }
     updateNews = async () => {
-        try {
+            this.props.setProgress(0);
             const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.props.page}&pageSize=${this.props.pageSize}`;
+            this.props.setProgress(10);
             this.setState({ loading: true });
+            this.props.setProgress(30);
             let data = await fetch(url);
+            this.props.setProgress(50);
             let parsedData = await data.json();
+            this.props.setProgress(80);
             console.log(parsedData);
             this.setState({
                 articles: parsedData.articles,
                 totalResults: parsedData.totalResults,
                 loading: false
-            })
-
-        } catch (error) {
-            console.log(error)
-        }
+            });
+            this.props.setProgress(100);
     }
 
     async componentDidMount() {
