@@ -3,7 +3,6 @@ import Card from './Card';
 import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from "react-infinite-scroll-component";
-// import LoadingBar from 'react-top-loading-bar'
 
 export class News extends Component {
 
@@ -57,8 +56,9 @@ export class News extends Component {
     }
 
     fetchMoreData = async() =>{
-        this.setState.page=({page:this.state.page + 1});
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.props.page}&pageSize=${this.props.pageSize}`;
+        this.setState.page=({page: ++this.state.page}); //eslint-disable-next-line
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page++}&pageSize=${this.props.pageSize}`;
+        this.setState.page=({page: this.state.page++}); //eslint-disable-next-line
             this.setState({ loading: true });
             let data = await fetch(url);
             let parsedData = await data.json();
@@ -91,7 +91,7 @@ export class News extends Component {
     render() {
         return (
             <div className="container my-3">
-                <h1 className="text-center" style={{ margin: '40px' }} >Tech Patrika - Top Headlines from {this.cap1stLetter(this.props.category)} Category</h1>
+                <h1 className="text-center" style={{ margin: '40px', marginTop: '90px' }} >Tech Patrika - Top Headlines from {this.cap1stLetter(this.props.category)} Category</h1>
                 {/* {this.state.loading && <Spinner />} */}
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
