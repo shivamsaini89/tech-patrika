@@ -71,28 +71,10 @@ export class News extends Component {
 
     };
 
-    // handlePrevClick = async () => {
-    //     this.setState({ page: (this.state.page - 1) });
-    //     this.updateNews();
-
-    // }
-
-    // handleNextClick = async () => {
-    //     if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
-    //         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-    //         this.setState({ loading: true })
-    //         let data = await fetch(url);
-    //         let parsedData = await data.json()
-    //         this.setState({ articles: parsedData.articles, title: parsedData.title, imageUrl: parsedData.imageUrl, url: parsedData.url, description: parsedData.description, page: this.state.page + 1, loading: false })
-    //     }
-    // }
-
-
     render() {
         return (
             <div className="container my-3">
                 <h1 className="text-center" style={{ margin: '40px', marginTop: '90px' }} >Tech Patrika - Top Headlines from {this.cap1stLetter(this.props.category)} Category</h1>
-                {/* {this.state.loading && <Spinner />} */}
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
