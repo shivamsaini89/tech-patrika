@@ -34,7 +34,7 @@ export class News extends Component {
     }
     updateNews = async () => {
             this.props.setProgress(0);
-            const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.props.page}&pageSize=${this.props.pageSize}`;
+            const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
             this.props.setProgress(10);
             this.setState({ loading: true });
             this.props.setProgress(30);
@@ -56,9 +56,9 @@ export class News extends Component {
     }
 
     fetchMoreData = async() =>{
-        this.setState.page=({page: 1+this.state.page}); //eslint-disable-next-line
+        this.setState({page:this.state.page+1}); //eslint-disable-next-line
         const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
-        this.setState.page=({page: this.state.page+1}); //eslint-disable-next-line
+        // this.setState.page=({page: this.state.page+1}); //eslint-disable-next-line
             this.setState({ loading: true });
             let data = await fetch(url);
             let parsedData = await data.json();
