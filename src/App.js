@@ -10,22 +10,22 @@ import {
 
 export default class App extends Component {
   pageSize = 20;
-  state = {progress:0};
+  state = { progress: 0 };
 
-  setProgress = (progress)=>{
-    this.setState({progress: progress});
+  setProgress = (progress) => {
+    this.setState({ progress: progress });
   }
-  apiKey = process.env.REACT_APP_NEWS_API_KEY;
+  apiKey = '38b2795453e041288a2416f133c58cb6';
   render() {
     return (
       <>
         <div>
           <Router>
-          <LoadingBar
-        color='#f11946'
-        height={3}
-        progress={this.state.progress}
-      />
+            <LoadingBar
+              color='#f11946'
+              height={3}
+              progress={this.state.progress}
+            />
             <Navbar />
             <Routes>
               <Route exact strict path="/" element={<News setProgress={this.setProgress} key="general" pageSize={this.pageSize} apiKey={this.apiKey} category={"general"} country={"in"} />} ></Route>
