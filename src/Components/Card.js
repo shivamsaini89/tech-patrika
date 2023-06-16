@@ -8,12 +8,12 @@ export default class Card extends Component {
         <div className="my-4 ">
           <div className="card" style={{ width: 18 + 'rem' }}>
             <div style={{
-              display:'flex',
-              justifyContent:'flex-end',
-              position:'absolute',
-              right:'0',
+              display: 'flex',
+              justifyContent: 'flex-end',
+              position: 'absolute',
+              right: '0',
             }}>
-            <span className="badge rounded-pill bg-success"  >{source}</span>
+              <span className="badge rounded-pill bg-success"  >{source}</span>
             </div>
             <img src={imageUrl} className="card-img-top" alt="..." />
             <div className="card-body">
