@@ -44,7 +44,7 @@ export default class App extends Component {
 
               <Route exact strict path="/technology" element={<News setProgress={this.setProgress} key="technology" pageSize={this.pageSize} apiKey={this.apiKey} category={"technology"} country={"in"} />} ></Route>
             </Routes>
-            <footer className=' navbar-secondary fixed-bottom bg-secondary text-center'>
+            <footer className=' navbar navbar-dark fixed-bottom bg-dark text-center'>
               <h6>Created by Shivam Saini</h6>
               <em>Copyright &copy; 2023</em>
             </footer>
